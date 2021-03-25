@@ -17,4 +17,11 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
-Route.get('/home', ()=> 'This is Home')
+Route.group(() => {
+    Route.get('index', 'PostController.index').as('posts.index')  
+    Route.get('create', 'PostController.create').as('posts.create')   
+    Route.post('store', 'PostController.store').as('posts.store')   
+    Route.get('edit/:id', 'PostController.edit').as('posts.edit')   
+    Route.post('update/:id', 'PostController.update').as('posts.update')   
+    Route.get('delete/:id', 'PostController.delete').as('posts.delete')   
+  }).prefix('posts')

@@ -1,0 +1,24 @@
+@layout('layout')
+
+@section('content')
+  @if(old('notification'))
+    <div class="alert alert-success"> {{ old('notification') }} </div>
+  @endif
+  <h2>All Posts</h2>
+  <table class="table table-bordered">
+      <tr>
+          <th>Title</th>
+          <th>Body</th>
+          <th>Edit</th>
+          <th>Delete</th>
+      </tr>
+      @each(post in posts)        
+        <tr>
+            <td>{{ post.title }}</td>
+            <td>{{ post.body }}</td>
+            <td><a href="{{ route('posts.edit',{ id:post.id }) }}" class="btn btn-sm btn-warning"> Edit </a></td>
+            <td><a href="{{ route('posts.delete',{ id:post.id }) }}" class="btn btn-sm btn-danger"> Delete </a></td>
+        </tr>
+      @endeach
+  </table>
+@endsection

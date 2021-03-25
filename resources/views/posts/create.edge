@@ -1,0 +1,23 @@
+@layout('layout')
+
+@section('content')
+
+    <h2> {{ post.id == null ? 'Add New Post' : 'Update this post'}} </h2>
+
+    <Form action="{{ post.id == null ? route('posts.store') : route('posts.update', { id : post.id}) }}" class="form" method="POST">
+        {{ csrfField() }}
+        <div class="form-group">
+            <label class="label" for="title">Title</label>
+            <input class="form-control col-5" type="text" name="title" value="{{ post.title != null ? post.title : ''  }}" >
+        </div>
+
+        <div class="form-group">
+            <label class="label" for="body">Body</label>
+            <input class="form-control col-5" type="text" name="body" value="{{ post.body != null ? post.body : ''   }}" >
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </Form>
+  
+@endsection

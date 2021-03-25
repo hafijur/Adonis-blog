@@ -1,3 +1,13 @@
+## Simple CRUD operation using adonisjs
+1. Index Page
+![Index-Page](public/images/index.png)
+2. Update Page
+![Update-Page](public/images/update.png)
+3. Delete
+![Delete](public/images/delete.png)
+
+
+
 # Adonis fullstack application
 
 This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
@@ -29,3 +39,5 @@ Run the following command to run startup migrations.
 ```js
 adonis migration:run
 ```
+
+
