@@ -7,6 +7,11 @@
 ![Delete](public/images/delete.png)
 
 
+# For Starting Project
+```js
+nodemon server.js 
+```
+
 
 # Adonis fullstack application
 

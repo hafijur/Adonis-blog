@@ -16,14 +16,12 @@ class PostController {
       return view.render('posts.create')
     }
 
-    async edit({ params, view }) {
-        const post = await Post.find(params.id);
+    async edit({ post, view }) {
         return view.render('posts.create', { post: post })
     }
     
-    async update({ params, request, response, session }) {
+    async update({ request, response, post, session }) {
         
-        const post = await Post.find(params.id);
         post.title = request.input('title');
         post.body = request.input('body');
         session.flash({ notification : 'Post Updated successfully' })
@@ -43,9 +41,9 @@ class PostController {
         return response.route('PostController.index')
     }
     
-    async delete({ params, response, session }) {
+    async delete({response, post, session }) {
         
-        const post = await Post.find(params.id);
+        
         session.flash({ notification : 'Post Deleted successfully' })
         await post.delete();
         return response.route('PostController.index')
